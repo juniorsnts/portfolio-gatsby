@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="Retângulo_329" data-name="Retângulo 329" class="cls-1" width="36" height="36" transform="translate(-0.4)"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_de_máscara_8" data-name="Grupo de máscara 8" class="cls-2" transform="translate(0.4)">
+    <path id="logo-linkedin" class="cls-1" d="M34.549,1.429H4.5a2.936,2.936,0,0,0-3.076,2.8V34.344A3.167,3.167,0,0,0,4.5,37.429H34.54a3.007,3.007,0,0,0,2.888-3.085V4.232A2.76,2.76,0,0,0,34.549,1.429ZM12.588,31.436H7.43V15.4h5.157Zm-2.4-18.473h-.037A2.647,2.647,0,0,1,7.431,10.2,2.663,2.663,0,0,1,10.216,7.43,2.656,2.656,0,0,1,12.973,10.2,2.664,2.664,0,0,1,10.187,12.963ZM31.436,31.436H26.279V22.669c0-2.1-.751-3.536-2.616-3.536a2.82,2.82,0,0,0-2.645,1.9A3.474,3.474,0,0,0,20.84,22.3v9.133H15.682V15.4H20.84v2.232a5.222,5.222,0,0,1,4.651-2.607c3.385,0,5.946,2.232,5.946,7.042Z" transform="translate(-0.715 -1.428)"/>
+  </g>
+</svg>

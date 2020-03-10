@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="Retângulo_329" data-name="Retângulo 329" class="cls-1" width="36" height="36" transform="translate(-0.4)"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_de_máscara_9" data-name="Grupo de máscara 9" class="cls-2" transform="translate(0.4)">
+    <path id="logo-facebook" class="cls-1" d="M35.441,1.429H3.416A1.988,1.988,0,0,0,1.429,3.416V35.441a1.988,1.988,0,0,0,1.987,1.987H19.429V23.286h-4.3V18.143h4.3v-4.1c0-4.649,3.225-7.181,7.378-7.181,1.987,0,4.125.149,4.621.215v4.856H28.119c-2.26,0-2.69,1.069-2.69,2.644v3.564h5.384l-.7,5.143H25.429V37.429H35.441a1.988,1.988,0,0,0,1.987-1.987V3.416A1.988,1.988,0,0,0,35.441,1.429Z" transform="translate(-2.864 -1.429)"/>
+  </g>
+</svg>

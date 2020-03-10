@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="Retângulo_329" data-name="Retângulo 329" class="cls-1" width="36" height="36" transform="translate(0.2)"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_de_máscara_10" data-name="Grupo de máscara 10" class="cls-2" transform="translate(-0.2)">
+    <g id="logo-instagram" transform="translate(0 0)">
+      <path id="Caminho_1905" data-name="Caminho 1905" class="cls-1" d="M26.928,4.428a7.523,7.523,0,0,1,7.5,7.5v15a7.523,7.523,0,0,1-7.5,7.5h-15a7.523,7.523,0,0,1-7.5-7.5v-15a7.523,7.523,0,0,1,7.5-7.5h15m0-3h-15a10.531,10.531,0,0,0-10.5,10.5v15a10.531,10.531,0,0,0,10.5,10.5h15a10.531,10.531,0,0,0,10.5-10.5v-15A10.531,10.531,0,0,0,26.928,1.429Z" transform="translate(-1.429 -1.429)"/>
+      <path id="Caminho_1906" data-name="Caminho 1906" class="cls-1" d="M17.845,9.262A2.245,2.245,0,1,1,19.437,8.6a2.25,2.25,0,0,1-1.592.658Z" transform="translate(9.905 1.238)"/>
+      <path id="Caminho_1907" data-name="Caminho 1907" class="cls-1" d="M15.429,9.428a6,6,0,1,1-6,6,6,6,0,0,1,6-6m0-3a9,9,0,1,0,9,9A9,9,0,0,0,15.429,6.429Z" transform="translate(2.571 2.571)"/>
+    </g>
+  </g>
+</svg>
