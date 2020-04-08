@@ -15,6 +15,7 @@ node {
         remote.host = '157.245.241.226'
         remote.user = 'root'
         remote.password = 'qwe19as3'
+        remote.allowAnyHosts = true
         if(BRANCH_NAME == 'master'){
             sshCommand remote: remote, command: "ls -lrt"
         }
