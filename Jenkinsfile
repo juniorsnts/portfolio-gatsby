@@ -29,12 +29,6 @@ pipeline {
             steps {
                 sh 'docker run --name portfolio -d -p 3000:80 juniorsntsid/portfolio:v1'
                 sh 'echo "Servidor rodando em: http://localhost:3000"'
-                input message: 'Fazer deploy em producao?', ok: 'Sim'
-            }
-        }
-        stage('deploy') {
-            steps {
-                sh 'echo "Fazer deploy"'
             }
         }
     }
