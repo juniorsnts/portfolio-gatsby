@@ -58,6 +58,12 @@ module.exports = {
         ignore: [`**/styles.js`],
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-160180423-1",
+      },
+    },
     `gatsby-plugin-offline`,
   ]
 }

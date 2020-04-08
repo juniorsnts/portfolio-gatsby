@@ -15,13 +15,15 @@ export const LeftContainer = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    /* height: 100vh; */
 
     img {
         margin-top: 50px;
         /* height: 110px; */
     }
     
-    ul {
+    ul {    
+        height: 100vh;
         list-style: none;
         align-self: flex-start;
 
@@ -49,6 +51,10 @@ export const LeftContainer = styled.div`
             }
         }
     }
+    /* display: none; */
+    @media(max-width: 900px){
+        display: none;
+    }
 `;
 export const RightContainer = styled.div`
     width: 100%;
@@ -58,54 +64,4 @@ export const RightContainer = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-`;
-
-export const BoxProfile = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    flex-direction: column;
-    background-image: url(${background});
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: ${window.innerHeight}px;
-    width: 100%;
-`;
-
-export const ImageProfile = styled.div`
-    background-image: url(${profile});
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 200px;
-    width: 200px;
-`;
-
-export const Name = styled.h2`
-    font-size: 32px;
-    color: #FFF;
-    margin: 0;
-    padding: 0;
-    margin-top: 26px;
-    margin-bottom: 26px;
-    font-family: oswald;
-    font-weight: bold;
-`;
-
-export const Description = styled.h3`
-    color: #fff;
-    font-size: 26px;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 15px;
-    font-family: oswald
-`;
-
-export const BoxIcons = styled.div`
-    display: flex;
-    flex-direction: row;
-
-    img {
-        margin: 20px;
-        cursor: pointer;
-    }
 `;
