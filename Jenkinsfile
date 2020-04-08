@@ -19,7 +19,8 @@ node {
                 withCredentials([usernamePassword(credentialsId: 'vm-ocean', usernameVariable: 'username', passwordVariable: 'password')]) {
                     remote.user = username
                     remote.password = password
-                    sshCommand remote: remote, command: "docker run -d -p 80:80 ${image}"
+                    sshCommand remote: remote, command: "docker stop portfolio-${BRANCH_NAME}"
+                    sshCommand remote: remote, command: "docker run --name portfolio-${BRANCH_NAME} -d -p 80:80 ${image}"
                 }
                 echo "Servidor rodando em http://${remote.host}:80"
             } catch(Exception e){
@@ -31,7 +32,8 @@ node {
                 withCredentials([usernamePassword(credentialsId: 'vm-ocean', usernameVariable: 'username', passwordVariable: 'password')]) {
                     remote.user = username
                     remote.password = password
-                    sshCommand remote: remote, command: "docker run -d -p 81:80 ${image}"
+                    sshCommand remote: remote, command: "docker stop portfolio-${BRANCH_NAME}"
+                    sshCommand remote: remote, command: "docker run --name portfolio-${BRANCH_NAME} -d -p 81:80 ${image}"
                 }
                 echo "Servidor rodando em http://${remote.host}:81"
             } catch(Exception e){
