@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage('Removendo container antigo'){ 
             steps {
-                sh "echo $BRANCH_NAME"
                 sh "echo teste"
                 script {
                     try {
