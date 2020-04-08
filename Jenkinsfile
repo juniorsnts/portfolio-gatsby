@@ -11,17 +11,12 @@ node {
     }
     stage('deploy'){
         def remote = [:]
-        remote.name = "portfolio"
-        remote.host = "157.245.241.226"
-        remote.allowAnyHosts = true
+        remote.name = 'portfolio-digital'
+        remote.host = '157.245.241.226'
+        remote.user = 'root'
+        remote.password = 'qwe19as3'
         if(BRANCH_NAME == 'master'){
-            withCredentials([sshUserPrivateKey(credentialsId: 'ssh-digital-ocean', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
-                remote.user = userName
-                remote.identityFile = identity
-                stage("SSH Steps Rocks!") {
-                    sshCommand remote: remote, command: 'ls -la'
-                }
-            }
+            sshCommand remote: remote, command: "ls -lrt"
         }
         if(BRANCH_NAME == 'develop'){
             echo 'teste'
