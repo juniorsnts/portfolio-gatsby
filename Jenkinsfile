@@ -29,5 +29,12 @@ pipeline {
                 sh 'echo "Servidor rodando em: http://localhost:3000"'
             }
         }
+        stage('Subir pra producao') {
+            steps {
+                timeout(time: 10, unit: 'MINUTES') {
+                    input(id: "Deploy Gate", message: "Deploy em produção?", ok: 'Deploy')
+                }
+            }
+        }
     }
 }
