@@ -1,7 +1,6 @@
 node {
-    stages {
-        stage('Construindo a imagem'){
-            echo 'Construindo'
-        }
+    def teste = 'Hello world';
+    stage('Construindo a imagem'){
+        echo teste
     }
 }
