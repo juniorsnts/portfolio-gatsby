@@ -9,7 +9,7 @@ node {
             sh "docker push ${image}"
         }
     }
-    stage('deploy'){
+    stage('Parando container'){
         def remote = [:]
         remote.name = 'portfolio-digital'
         remote.host = '157.245.241.226'
@@ -20,6 +20,33 @@ node {
                     remote.user = username
                     remote.password = password
                     sshCommand remote: remote, command: "docker stop portfolio-${BRANCH_NAME}"
+                }
+            } catch(Exception e){
+                echo e
+            }
+        }
+        if(BRANCH_NAME == 'develop'){
+            try {
+                withCredentials([usernamePassword(credentialsId: 'vm-ocean', usernameVariable: 'username', passwordVariable: 'password')]) {
+                    remote.user = username
+                    remote.password = password
+                    sshCommand remote: remote, command: "docker stop portfolio-${BRANCH_NAME}"
+                }
+            } catch(Exception e){
+                echo e
+            }
+        }        
+    }
+    stage('deploy'){
+        def remote = [:]
+        remote.name = 'portfolio-digital'
+        remote.host = '157.245.241.226'
+        remote.allowAnyHosts = true
+        if(BRANCH_NAME == 'master'){
+            try {
+                withCredentials([usernamePassword(credentialsId: 'vm-ocean', usernameVariable: 'username', passwordVariable: 'password')]) {
+                    remote.user = username
+                    remote.password = password
                     sshCommand remote: remote, command: "docker run --name portfolio-${BRANCH_NAME} -d -p 80:80 ${image}"
                 }
                 echo "Servidor rodando em http://${remote.host}:80"
@@ -32,7 +59,6 @@ node {
                 withCredentials([usernamePassword(credentialsId: 'vm-ocean', usernameVariable: 'username', passwordVariable: 'password')]) {
                     remote.user = username
                     remote.password = password
-                    sshCommand remote: remote, command: "docker stop portfolio-${BRANCH_NAME}"
                     sshCommand remote: remote, command: "docker run --name portfolio-${BRANCH_NAME} -d -p 81:80 ${image}"
                 }
                 echo "Servidor rodando em http://${remote.host}:81"
