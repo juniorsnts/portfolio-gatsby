@@ -1,3 +1,7 @@
+def remote = [:]
+remote.name = 'portfolio-digital'
+remote.host = '157.245.241.226'
+remote.allowAnyHosts = true
 node {
     def image = "juniorsntsid/portfolio-$BRANCH_NAME"
     stage('Build da imagem'){
@@ -10,13 +14,9 @@ node {
         }
     }
     stage('Parando container'){
-        def remote = [:]
-        remote.name = 'portfolio-digital'
-        remote.host = '157.245.241.226'
-        remote.allowAnyHosts = true
         if(BRANCH_NAME == 'master'){
             withCredentials([usernamePassword(credentialsId: 'vm-ocean', usernameVariable: 'username', passwordVariable: 'password')]) {
-                remote.user = username
+                remote.user = username 
                 remote.password = password
                 try {
                     sshCommand remote: remote, command: "docker stop portfolio-${BRANCH_NAME}"
@@ -38,10 +38,6 @@ node {
         }        
     }
     stage('deploy'){
-        def remote = [:]
-        remote.name = 'portfolio-digital'
-        remote.host = '157.245.241.226'
-        remote.allowAnyHosts = true
         if(BRANCH_NAME == 'master'){
             withCredentials([usernamePassword(credentialsId: 'vm-ocean', usernameVariable: 'username', passwordVariable: 'password')]) {
                 remote.user = username
