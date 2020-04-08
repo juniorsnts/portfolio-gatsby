@@ -19,7 +19,6 @@ node {
                 withCredentials([usernamePassword(credentialsId: 'vm-ocean', usernameVariable: 'username', passwordVariable: 'password')]) {
                     remote.user = username
                     remote.password = password
-                    echo identity
                     sshCommand remote: remote, command: "docker run -d -p 80:80 ${image}"
                 }
                 echo "Servidor rodando em http://${remote.host}:80"
@@ -32,7 +31,6 @@ node {
                 withCredentials([usernamePassword(credentialsId: 'vm-ocean', usernameVariable: 'username', passwordVariable: 'password')]) {
                     remote.user = username
                     remote.password = password
-                    echo identity
                     sshCommand remote: remote, command: "docker run -d -p 81:80 ${image}"
                 }
                 echo "Servidor rodando em http://${remote.host}:81"
