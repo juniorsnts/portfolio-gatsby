@@ -1,7 +1,0 @@
-docker_dependencies:
-  - apt-transport-https
-  - ca-certificates
-  - curl
-  - software-properties-common
-  - gnupg2
-  - python-pip
