@@ -27,14 +27,16 @@ pipeline {
         }
         stage('Rodando imagem') {
             steps {
-                if(BRANCH_NAME == 'master'){
-                    sh 'docker run --name portfolio -d -p 3000:80 juniorsntsid/portfolio:v1'
-                    sh 'echo "Servidor rodando em: http://localhost:3000"'
-                } else if(BRANCH_NAME == 'develop'){
-                    sh 'docker run --name portfolio -d -p 3001:80 juniorsntsid/portfolio:v1'
-                    sh 'echo "Servidor rodando em: http://localhost:3001"'
-                } else {
-                    sh "echo Error na branch $BRANCH_NAME"
+                script {
+                    if(BRANCH_NAME == 'master'){
+                        sh 'docker run --name portfolio -d -p 3000:80 juniorsntsid/portfolio:v1'
+                        sh 'echo "Servidor rodando em: http://localhost:3000"'
+                    } else if(BRANCH_NAME == 'develop'){
+                        sh 'docker run --name portfolio -d -p 3001:80 juniorsntsid/portfolio:v1'
+                        sh 'echo "Servidor rodando em: http://localhost:3001"'
+                    } else {
+                        sh "echo Error na branch $BRANCH_NAME"
+                    }
                 }
             }
         }
