@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    enviroment {
+    environment {
         remote = [:]
         remote.name = 'root'
         remote.host = '157.245.241.226'
