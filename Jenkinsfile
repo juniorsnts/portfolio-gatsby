@@ -13,13 +13,15 @@ node {
         def remote = [:]
         remote.name = 'portfolio-digital'
         remote.host = '157.245.241.226'
-        remote.user = 'root'
-        remote.password = 'qwe19as3'
         remote.allowAnyHosts = true
         if(BRANCH_NAME == 'master'){
-            sshCommand remote: remote, command: "ls -la"
             try {
-                sshCommand remote: remote, command: "docker run -d -p 80:80 ${image}"
+                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-digital-ocean', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
+                    remote.user = userName
+                    remote.identityFile = identity
+                    echo identity
+                    sshCommand remote: remote, command: "docker run -d -p 80:80 ${image}"
+                }
                 echo "Servidor rodando em http://${remote.host}:80"
             } catch(Exception e){
                 echo e
@@ -27,7 +29,12 @@ node {
         }
         if(BRANCH_NAME == 'develop'){
             try {
-                sshCommand remote: remote, command: "docker run -d -p 81:80 ${image}"
+                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-digital-ocean', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
+                    remote.user = userName
+                    remote.identityFile = identity
+                    echo identity
+                    sshCommand remote: remote, command: "docker run -d -p 81:80 ${image}"
+                }
                 echo "Servidor rodando em http://${remote.host}:81"
             } catch(Exception e){
                 echo e
