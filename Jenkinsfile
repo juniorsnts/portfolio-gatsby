@@ -26,6 +26,7 @@ pipeline {
         stage('Rodando imagem') {
             steps {
                 sh 'sudo docker run --name superfacil -d -p 3000:3000 prodap/superfacil:v1'
+                sh 'echo "Servidor rodando em: http://localhost:3000"'
             }
         }
     }
