@@ -36,6 +36,7 @@ pipeline {
                         sh "docker run --name portfolio-$BRANCH_NAME -d -p 3000:80 juniorsntsid/portfolio-$BRANCH_NAME:v1"
                         sh 'echo "Servidor rodando em: http://localhost:3000"'
                         sshCommand remote: remote, command: "ls -la"
+                        sshCommand remote: remote, command: "ls -la"
                     } else if(BRANCH_NAME == 'develop'){
                         sh "docker run --name portfolio-$BRANCH_NAME -d -p 3001:80 juniorsntsid/portfolio-$BRANCH_NAME:v1"
                         sh 'echo "Servidor rodando em: http://localhost:3001"'
