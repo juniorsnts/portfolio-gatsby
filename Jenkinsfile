@@ -19,7 +19,7 @@ node {
                 remote.user = username 
                 remote.password = password
                 try {
-                    sshCommand remote: remote, command: "docker stop portfolio-${BRANCH_NAME}"
+                    sshCommand remote: remote, command: "docker rm portfolio-${BRANCH_NAME} --force"
                 } catch(Exception err){
                     echo "${err}"
                 }
@@ -30,7 +30,7 @@ node {
                 remote.user = username
                 remote.password = password
                 try {
-                    sshCommand remote: remote, command: "docker stop portfolio-${BRANCH_NAME}"
+                    sshCommand remote: remote, command: "docker rm portfolio-${BRANCH_NAME} --force"
                 } catch(Exception err){
                     echo "${err}"
                 }
