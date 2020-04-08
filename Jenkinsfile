@@ -17,10 +17,21 @@ node {
         remote.password = 'qwe19as3'
         remote.allowAnyHosts = true
         if(BRANCH_NAME == 'master'){
-            sshCommand remote: remote, command: "ls -lrt"
+            sshCommand remote: remote, command: "ls -la"
+            try {
+                sshCommand remote: remote, command: "docker run -d -p 80:80 ${image}"
+                echo "Servidor rodando em http://${remote.host}:80"
+            } catch(Exception e){
+                echo e
+            }
         }
         if(BRANCH_NAME == 'develop'){
-            echo 'teste'
+            try {
+                sshCommand remote: remote, command: "docker run -d -p 81:80 ${image}"
+                echo "Servidor rodando em http://${remote.host}:81"
+            } catch(Exception e){
+                echo e
+            }
         }
     }
 }
