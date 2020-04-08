@@ -1,13 +1,5 @@
 pipeline {
     agent any
-    environment {
-        remote = [:]
-        remote.name = 'root'
-        remote.host = '157.245.241.226'
-        remote.user = 'root'
-        remote.password = 'qwe19as3'
-        remote.allowAnyHosts = true
-    }
     stages {
         stage('Removendo container antigo'){ 
             steps {
@@ -34,6 +26,12 @@ pipeline {
         stage('Rodando imagem') {
             steps {
                 script {
+                    def remote = [:]
+                    remote.name = 'root'
+                    remote.host = '157.245.241.226'
+                    remote.user = 'root'
+                    remote.password = 'qwe19as3'
+                    remote.allowAnyHosts = true
                     if(BRANCH_NAME == 'master'){
                         sh "docker run --name portfolio-$BRANCH_NAME -d -p 3000:80 juniorsntsid/portfolio-$BRANCH_NAME:v1"
                         sh 'echo "Servidor rodando em: http://localhost:3000"'
