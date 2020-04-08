@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'sudo docker rm superfacil --force'
+                        sh 'docker rm superfacil --force'
                     } catch(Exception e){
                         sh "echo $e"
                     }
@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'sudo docker build -t prodap/superfacil:v1 .'
+                        sh 'docker build -t prodap/superfacil:v1 .'
                     } catch(Exception e){
                         sh "echo $e"
                     }
@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Rodando imagem') {
             steps {
-                sh 'sudo docker run --name superfacil -d -p 3000:3000 prodap/superfacil:v1'
+                sh 'docker run --name superfacil -d -p 3000:3000 prodap/superfacil:v1'
                 sh 'echo "Servidor rodando em: http://localhost:3000"'
             }
         }
