@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Removendo container antigo'){ 
             steps {
+                sh "echo $BRANCH_NAME"
                 script {
                     try {
                         sh 'docker rm portfolio --force'
