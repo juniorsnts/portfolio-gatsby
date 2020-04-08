@@ -1,0 +1,39 @@
+---
+- name: "Instalando dependencias"
+  apt:
+    update-cache: yes
+    cache_valid_time: "3600"
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ docker_dependencies }}"
+  become: true
+
+- name: "Adicionado GPC key do docker"
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  become: true
+
+- name: "Adicionando apt repository do docker"
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu bionic stable
+    state: present
+  become: true
+
+- name: "Instalando docker"
+  apt:
+    update-cache: yes
+    name: "{{ item }}"
+    state: latest
+  become: true
+  with_items:
+    - docker-ce
+    - containerd.io
+    - docker-ce-cli
+  notify:
+    - restart docker
+
+- name: Instalando Docker Modulo pro python
+  pip:
+    name: docker
+  become: true

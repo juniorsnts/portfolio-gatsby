@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Instalando docker'){
+            steps {
+                ansiblePlaybook credentialsId: 'private_key', inventory: 'ansible/inventories/production/hosts', playbook: 'ansible/playbook/docker_install.yml'
+            }
+        }
         stage('Removendo container antigo'){ 
             steps {
                 sh "echo $BRANCH_NAME"
