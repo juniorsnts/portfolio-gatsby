@@ -9,4 +9,22 @@ node {
             sh "docker push ${image}"
         }
     }
+    stage('deploy'){
+        def remote = [:]
+        remote.name = "portfolio"
+        remote.host = "157.245.241.226"
+        remote.allowAnyHosts = true
+        if(BRANCH_NAME == 'master'){
+            withCredentials([sshUserPrivateKey(credentialsId: 'ssh-digital-ocean', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
+                remote.user = userName
+                remote.identityFile = identity
+                stage("SSH Steps Rocks!") {
+                    sshCommand remote: remote, command: 'ls -la'
+                }
+            }
+        }
+        if(BRANCH_NAME == 'develop'){
+            echo 'teste'
+        }
+    }
 }
