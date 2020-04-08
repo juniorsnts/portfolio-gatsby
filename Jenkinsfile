@@ -4,8 +4,6 @@ pipeline {
         stage('Instalando docker'){
             steps {
                 sh 'ls -la'
-            }
-            steps {
                 ansiblePlaybook credentialsId: 'private_key', inventory: 'ansible/inventories/production/hosts', playbook: 'ansible/docker_install.yml'
             }
         }
