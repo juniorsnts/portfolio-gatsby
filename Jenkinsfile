@@ -1,5 +1,13 @@
 pipeline {
     agent any
+    enviroment {
+        remote = [:]
+        remote.name = 'root'
+        remote.host = '157.245.241.226'
+        remote.user = 'root'
+        remote.password = 'qwe19as3'
+        remote.allowAnyHosts = true
+    }
     stages {
         stage('Removendo container antigo'){ 
             steps {
@@ -24,12 +32,6 @@ pipeline {
             }
         }
         stage('Rodando imagem') {
-            def remote = [:]
-            remote.name = 'root'
-            remote.host = '157.245.241.226'
-            remote.user = 'root'
-            remote.password = 'qwe19as3'
-            remote.allowAnyHosts = true
             steps {
                 script {
                     if(BRANCH_NAME == 'master'){
