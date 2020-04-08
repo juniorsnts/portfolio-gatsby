@@ -16,9 +16,9 @@ node {
         remote.allowAnyHosts = true
         if(BRANCH_NAME == 'master'){
             try {
-                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-digital-ocean', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
-                    remote.user = userName
-                    remote.identityFile = identity
+                withCredentials([usernamePassword(credentialsId: 'vm-ocean', usernameVariable: 'username', passwordVariable: 'password')]) {
+                    remote.user = username
+                    remote.password = password
                     echo identity
                     sshCommand remote: remote, command: "docker run -d -p 80:80 ${image}"
                 }
@@ -29,9 +29,9 @@ node {
         }
         if(BRANCH_NAME == 'develop'){
             try {
-                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-digital-ocean', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
-                    remote.user = userName
-                    remote.identityFile = identity
+                withCredentials([usernamePassword(credentialsId: 'vm-ocean', usernameVariable: 'username', passwordVariable: 'password')]) {
+                    remote.user = username
+                    remote.password = password
                     echo identity
                     sshCommand remote: remote, command: "docker run -d -p 81:80 ${image}"
                 }
