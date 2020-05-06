@@ -14,28 +14,11 @@ node {
         }
     }
     stage('Parando container'){
-        if(BRANCH_NAME == 'master'){
-            withCredentials([usernamePassword(credentialsId: 'vm-ocean', usernameVariable: 'username', passwordVariable: 'password')]) {
-                remote.user = username 
-                remote.password = password
-                try {
-                    sshCommand remote: remote, command: "docker rm portfolio-${BRANCH_NAME} --force"
-                } catch(Exception err){
-                    echo "${err}"
-                }
-            }
+        try {
+            sshCommand remote: remote, command: "docker rm portfolio-${BRANCH_NAME} --force"
+        } catch(Exception err){
+            echo "${err}"
         }
-        if(BRANCH_NAME == 'develop'){
-            withCredentials([usernamePassword(credentialsId: 'vm-ocean', usernameVariable: 'username', passwordVariable: 'password')]) {
-                remote.user = username
-                remote.password = password
-                try {
-                    sshCommand remote: remote, command: "docker rm portfolio-${BRANCH_NAME} --force"
-                } catch(Exception err){
-                    echo "${err}"
-                }
-            }
-        }        
     }
     stage('deploy'){
         if(BRANCH_NAME == 'master'){
